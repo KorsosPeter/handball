@@ -68,9 +68,7 @@ def get_scheduled_events(date_str: str) -> List[MatchInfo]:
     matches: List[MatchInfo] = []
     for ev in data["events"]:
         try:
-            if ev.get("sport", {}).get("name", "").lower() != "handball":
-                continue
-
+            # Sofascore changed the structure; do NOT filter by sport
             season_id = ev.get("season", {}).get("id")
             if season_id is None:
                 continue
@@ -91,7 +89,6 @@ def get_scheduled_events(date_str: str) -> List[MatchInfo]:
             continue
 
     return matches
-
 
 def get_team_stats(team_id: int, season_id: int) -> Optional[TeamStats]:
     url = f"{BASE_URL}/team/{team_id}/statistics/seasons/{season_id}"
