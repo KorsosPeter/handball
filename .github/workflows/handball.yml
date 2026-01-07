@@ -32,12 +32,12 @@ jobs:
       - name: List generated files
         run: ls -R .
 
-      - name: Upload ONLY generated files to GitHub Pages
+      - name: Upload generated files to GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
           path: |
-              handball_expected_goals.json
-              handball_expected_goals_*.csv
+            handball_expected_goals.json
+            handball_expected_goals_*.csv
 
   deploy:
     runs-on: ubuntu-latest
