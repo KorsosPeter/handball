@@ -29,6 +29,9 @@ jobs:
       - name: Run script
         run: python handball_expected_goals.py $(date +'%Y-%m-%d')
 
+      - name: List files after script
+        run: ls -R .
+
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
